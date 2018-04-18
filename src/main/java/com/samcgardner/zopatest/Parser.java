@@ -13,7 +13,7 @@ import java.util.List;
 
 public class Parser {
 
-    public List<Lender> parseLenders(String lendersPath) throws IOException {
+    public static List<Lender> parseLenders(String lendersPath) throws IOException {
 
         try (InputStream stream = new FileInputStream(new File(lendersPath))) {
             CsvMapper mapper = new CsvMapper();
@@ -27,7 +27,7 @@ public class Parser {
         }
     }
 
-    private CsvSchema buildSchema() {
+    private static CsvSchema buildSchema() {
         return CsvSchema.builder()
                 .addColumn("Lender")
                 .addColumn("Rate", CsvSchema.ColumnType.NUMBER)
