@@ -24,10 +24,12 @@ public class QuoteCalculatorTest {
         Quote quote = QuoteCalculator.calculateQuote(loan);
 
         assertEquals(200L, quote.getRequestedAmount());
-        assertEquals(new BigDecimal(0.006091666666666666666666666666666667).round(new MathContext(10, RoundingMode.HALF_EVEN)),
-                quote.getRate().round(new MathContext(10, RoundingMode.HALF_EVEN)));
 
-        MathContext roundingPrecision = new MathContext(3, RoundingMode.HALF_EVEN);
+        MathContext roundingPrecision = new MathContext(6, RoundingMode.HALF_EVEN);
+        assertEquals(new BigDecimal(0.00609167).round(roundingPrecision),
+                quote.getRate().round(roundingPrecision));
+
+        roundingPrecision = new MathContext(3, RoundingMode.HALF_EVEN);
         assertEquals(new BigDecimal(6.20).round(roundingPrecision), quote.getMonthlyRepayment().round(roundingPrecision));
         assertEquals(new BigDecimal(223.24).round(roundingPrecision), quote.getTotalRepayment().round(roundingPrecision));
     }
