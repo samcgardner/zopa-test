@@ -1,8 +1,11 @@
-group 'com.samcgarner'
-version '1.0-SNAPSHOT'
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '2.0.3'
+}
 
-apply plugin: 'java'
-apply plugin: 'application'
+group 'com.samcgardner'
+version '1.0-SNAPSHOT'
 
 mainClassName = "com.samcgardner.zopatest.Main"
 

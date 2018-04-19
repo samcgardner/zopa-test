@@ -20,7 +20,7 @@ public class LoanCalculator {
         Loan loan = new Loan(amount);
         List<Lender> sortedLenders = lenders
                 .stream()
-                .sorted(Comparator.comparing(Lender::getAmountAvailable))
+                .sorted(Comparator.comparing(Lender::getInterestRate))
                 .collect(Collectors.toList());
 
         for (Lender lender : sortedLenders) {

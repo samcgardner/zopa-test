@@ -38,7 +38,7 @@ public class Quote {
     public String prettyPrint() {
         StringBuilder builder = new StringBuilder();
 
-        builder.append("Requested amount: £");
+        builder.append("Requested amount: \u00a3");
         builder.append(requestedAmount);
         builder.append(System.getProperty("line.separator"));
 
@@ -47,11 +47,11 @@ public class Quote {
         builder.append("%");
         builder.append(System.getProperty("line.separator"));
 
-        builder.append("Monthly repayment: £");
+        builder.append("Monthly repayment: \u00a3");
         builder.append(monthlyRepayment.setScale(2, RoundingMode.HALF_EVEN));
         builder.append(System.getProperty("line.separator"));
 
-        builder.append("Total repayment: £");
+        builder.append("Total repayment: \u00a3");
         builder.append(totalRepayment.setScale(2, RoundingMode.HALF_EVEN));
 
         return builder.toString();
